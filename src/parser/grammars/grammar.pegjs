@@ -62,8 +62,8 @@ Modifier
 
 // Explode, Penetrate, Compound modifier
 ExplodeModifier
-  = "!" compound:"!"? penetrate:"p"? comparePoint:ComparePoint? {
-    return new Modifiers.ExplodeModifier(comparePoint, !!compound, !!penetrate);
+  = "!" compound:"!"? penetrate:"p"? iterationLimit:IterationLimit? comparePoint:ComparePoint? {
+    return new Modifiers.ExplodeModifier(comparePoint, !!compound, !!penetrate, iterationLimit);
   }
 
 // Target / Success and Failure modifier
@@ -133,6 +133,8 @@ ComparePoint
 
 CompareOperator
   = "!=" / "<=" / ">=" / "=" / ">" / "<"
+
+IterationLimit = IntegerNumber
 
 
 /**
